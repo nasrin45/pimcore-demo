@@ -1,6 +1,7 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
 <h1>{{ pimcore_input("headline", {"width": 540}) }}</h1>
+    Setting XYZ: {{ pimcore_checkbox('check') }}
 
 <div class="product-info">
     {% if editmode %}

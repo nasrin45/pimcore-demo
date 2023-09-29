@@ -1,0 +1,44 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+{% endblock %}
+ {{ pimcore_head_title("Home") }}
+{% block body %}
+    {% include 'header.html.twig' %}
+
+
+{% block content %}
+
+    <h1>{{ pimcore_input("headline", {"width": 540}) }}</h1>
+
+    {{ pimcore_areablock('new',{
+        'allowed':['university-brick']
+    })
+    }}
+
+    {% for i in pimcore_block('contentblock').iterator %}
+        <h2>{{ pimcore_input('subline') }}</h2>
+        {{ pimcore_wysiwyg('content') }}
+    {% endfor %}
+
+    <div class="embed">
+        {{ pimcore_embed("aboutUs") }}
+    </div>
+
+    <section id="renderlet-gallery">
+        {{
+        pimcore_renderlet('myGallery', {
+            "controller" : "App\\Controller\\UniversityController::galleryAction",
+            "title" : "Drag an asset folder here to get a gallery",
+            "height" : 400
+        })
+        }}
+    </section>
+
+{% endblock %}
+
+
+    {{ pimcore_snippet("mySnippet", {"width": 250, "height": 100}) }}
+
+
+{% endblock %}

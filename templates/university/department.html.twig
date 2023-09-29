@@ -1,0 +1,71 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+{% endblock %}
+ {{ pimcore_head_title("Departments") }}
+{% block body %}
+    {% include 'header.html.twig' %}
+
+
+    {% block content %}
+        <h1>{{ pimcore_input("headline", {"width": 540}) }}</h1>
+
+        <p>CS Department Inauguration Date:</p>
+        {{ pimcore_date('myDate', {
+            'format': 'd.m.Y',
+            'outputFormat': '%d.%m.%Y'
+        })
+        }}
+
+
+        {% if editmode %}
+        {{ pimcore_table("departmentProperties", {
+            "width": 700,
+            "height": 1800,
+            "defaults": {
+                "cols": 2,
+                "rows": 3
+            }
+        }) }}
+        {% else %}
+            {% set data = pimcore_table("departmentProperties").getData() %}
+            {% if data is not empty %}
+                <table>
+                    <tbody>
+                    {% for row in data %}
+                        <tr>
+                            <th>{{ row[0] }}</th>
+                            <td>{{ row[1] }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No data available.</p>
+            {% endif %}
+        {% endif %}
+
+        <p>{{ "Department Details" | trans }}:</p>
+        {% if editmode %}
+            {{ pimcore_relations("departmentElements") }}
+        {% else %}
+            <ul>
+                {% for department in pimcore_relations("departmentElements") %}
+                    <li>
+                        <strong>{{ department.getName() }}</strong><br>
+                        Location: {{ department.getLocation() }}<br>
+                        Head of Department: {{ department.getHod }}<br>
+                        Number of Students: {{ department.getStudents }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+    {% endblock %}
+
+
+    {{ pimcore_snippet("mySnippet", {"width": 250, "height": 100}) }}
+
+
+{% endblock %}

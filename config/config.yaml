@@ -1,6 +1,9 @@
 imports:
     - { resource: 'local/' }
 
+parameters:
+    pimcore.commandline.php_executable: /usr/bin/php/php-cli
+    pimcore.document.asset.ffmpeg: /usr/bin/ffmpeg
 
 pimcore:
 

@@ -1,0 +1,50 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+{% endblock %}
+ {{ pimcore_head_title("Student Zone") }}
+{% block body %}
+    {% include 'header.html.twig' %}
+
+
+    {% block content %}
+        <h1>{{ pimcore_input("headline", {"width": 540}) }}</h1>
+        {% if editmode %}
+            {{ pimcore_select("valid_for", {
+                "store": [
+                    ["First Year", "First Year"],
+                    ["Second Year", "Second Year"],
+                    ["Third Year", "Third Year"]
+                ],
+                "defaultValue" : "unlimited"
+            }) }}
+        {% else %}
+            <p>
+                {{ "Results published for" | trans }}:{{ pimcore_select("valid_for").getData() | trans  }}
+            </p>
+        {% endif %}
+    {% endblock %}
+
+    <p>
+        {{ "Visit here to see the courses" | trans }}
+        {{ pimcore_link('course') }}
+    </p>
+
+    <p>
+        {{ "Visit here to see new notifications" | trans }}
+        {{ pimcore_link('notify') }}
+    </p>
+
+    <p>
+        Number of Results Published: {{ pimcore_numeric('resultsPublished') }}
+    </p>
+
+    {% for i in pimcore_scheduledblock('block').iterator %}
+        <h2>{{ pimcore_input('blockinput') }}</h2>
+    {% endfor %}
+
+
+    {{ pimcore_snippet("mySnippet", {"width": 250, "height": 100}) }}
+
+
+{% endblock %}

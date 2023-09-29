@@ -1,0 +1,42 @@
+{% set navigationItems = [] %}
+
+{% set home = pimcore_document(4) %}
+{% set coursesDocument = pimcore_document(8) %}
+{% set departmentsDocument = pimcore_document(7) %}
+{% set studentsDocument = pimcore_document(10) %}
+{% set facultyDocument = pimcore_document(9) %}
+
+{% for section in [home, coursesDocument, departmentsDocument, studentsDocument, facultyDocument] %}
+    {% set navigationItem = {
+        'uri': section.getFullPath(),
+        'label': section.getProperty('navigation_name'),
+        'title': section.getProperty('navigation_title'),
+        'active': document.id == section.id
+    } %}
+    {% set navigationItems = navigationItems|merge([navigationItem]) %}
+{% endfor %}
+
+{% set mainNavigation = navigationItems %}
+
+<header class="bkground">
+    <div class="header-container">
+        <div class="headerWrap">
+            <div class="logo">
+                <a href="#">
+                    {{ pimcore_image("logo") }}
+                </a>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        {% for item in mainNavigation %}
+                            <li class="nav-item {% if item.active %}active{% endif %}">
+                                <a class="nav-link" href="{{ item.uri }}" title="{{ item.title }}">{{ item.label }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,47 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+{% endblock %}
+ {{ pimcore_head_title("Courses") }}
+{% block body %}
+    {% include 'header.html.twig' %}
+
+
+    {% block content %}
+        <h1>{{ pimcore_input("headline", {"width": 540}) }}</h1>
+
+        {% for i in pimcore_block('courseblock').iterator %}
+            <h3>{{ pimcore_input("course", {"width": 240}) }}</h3>
+        {% if editmode %}
+            {{ pimcore_multiselect('courseCategories', {
+                'width': 200,
+                'height': 100,
+                'store': [
+                    ['Computer Science', 'Computer Science'],
+                    ['Maths', 'Mathematics'],
+                    ['Physics', 'Physics'],
+                    ['Chemistry', 'Chemistry'],
+                    ['English', 'English'],
+                ]
+            }) }}
+        {% else %}
+            <p>{{ 'This course has the following subjects:' | trans }}
+                {% for categoryKey in pimcore_multiselect('courseCategories').getData %}
+                    <span>{{ categoryKey | trans }}</span>
+                {% endfor %}
+            </p>
+        {% endif %}
+            <div class="pdf">
+                Course Details
+                {{ pimcore_pdf("myPdf", {"width": 640}) }}
+            </div>
+        {% endfor %}
+
+
+    {% endblock %}
+
+
+    {{ pimcore_snippet("mySnippet", {"width": 250, "height": 100}) }}
+
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+{% endblock %}
+ {{ pimcore_head_title("Faculties") }}
+{% block body %}
+    {% include 'header.html.twig' %}
+
+
+    {% block content %}
+        <h1>{{ pimcore_input("headline", {"width": 540}) }}</h1>
+        <p>{{ pimcore_input("faculties") }}</p>
+
+        <div class="faculty-info">
+            {% for i in pimcore_block('faculty').iterator %}
+                {% if editmode %}
+                    {{ pimcore_relation("faculty") }}
+                {% else %}
+                    {% set faculty = pimcore_relation("faculty").element %}
+                    {% if faculty %}
+                        <h2>{{ faculty.name }}</h2>
+                        <p>Designation {{ faculty.designation|raw }}</p>
+                        <p>Joined on {{ faculty.joined|raw }}</p>
+                    {% endif %}
+                {% endif %}
+                {{ pimcore_checkbox('facultyStatus', {'label': 'Active'}) }}
+
+                {% if pimcore_checkbox('facultyStatus').isChecked() %}
+                    <p>Status: Active</p>
+                {% else %}
+                    <p>Status: Inactive</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <section id="campaign_video">
+            {{ pimcore_video('campaignVideo', {
+                width: 700,
+                height: 400
+            }) }}
+        </section>
+
+    {% endblock %}
+
+
+    {{ pimcore_snippet("mySnippet", {"width": 250, "height": 100}) }}
+
+{% endblock %}

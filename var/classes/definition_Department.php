@@ -6,19 +6,19 @@
  *
  * Fields Summary:
  * - name [input]
- * - sku [input]
- * - description [wysiwyg]
- * - picture [image]
+ * - location [input]
+ * - hod [input]
+ * - students [numericRange]
  */
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'dao' => NULL,
-   'id' => '1',
-   'name' => 'Product',
+   'id' => '3',
+   'name' => 'Department',
    'title' => '',
    'description' => '',
    'creationDate' => NULL,
-   'modificationDate' => 1695883574,
+   'modificationDate' => 1695986716,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -93,8 +93,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
           )),
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'name' => 'sku',
-             'title' => 'Sku',
+             'name' => 'location',
+             'title' => 'Location',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -116,15 +116,15 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'regexFlags' => 
             array (
             ),
-             'unique' => true,
+             'unique' => false,
              'showCharCount' => false,
              'width' => '',
              'defaultValueGenerator' => '',
           )),
           2 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Wysiwyg::__set_state(array(
-             'name' => 'description',
-             'title' => 'Description',
+          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+             'name' => 'hod',
+             'title' => 'Hod',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -140,16 +140,21 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'blockedVarsForExport' => 
             array (
             ),
-             'toolbarConfig' => '',
-             'excludeFromSearchIndex' => false,
-             'maxCharacters' => '',
-             'height' => '',
+             'defaultValue' => NULL,
+             'columnLength' => 190,
+             'regex' => '',
+             'regexFlags' => 
+            array (
+            ),
+             'unique' => false,
+             'showCharCount' => false,
              'width' => '',
+             'defaultValueGenerator' => '',
           )),
           3 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Image::__set_state(array(
-             'name' => 'picture',
-             'title' => 'Picture',
+          Pimcore\Model\DataObject\ClassDefinition\Data\NumericRange::__set_state(array(
+             'name' => 'students',
+             'title' => 'Students',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -165,9 +170,13 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'blockedVarsForExport' => 
             array (
             ),
-             'uploadPath' => '',
+             'integer' => false,
+             'unsigned' => false,
+             'minValue' => NULL,
+             'maxValue' => NULL,
+             'decimalSize' => NULL,
+             'decimalPrecision' => NULL,
              'width' => '',
-             'height' => '',
           )),
         ),
          'locked' => false,
@@ -226,28 +235,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'enableGridLocking' => false,
    'deletedDataComponents' => 
   array (
-    0 => 
-    Pimcore\Model\DataObject\ClassDefinition\Data\Checkbox::__set_state(array(
-       'name' => 'check',
-       'title' => 'Check',
-       'tooltip' => '',
-       'mandatory' => false,
-       'noteditable' => false,
-       'index' => false,
-       'locked' => false,
-       'style' => '',
-       'permissions' => NULL,
-       'fieldtype' => '',
-       'relationType' => false,
-       'invisible' => false,
-       'visibleGridView' => false,
-       'visibleSearch' => false,
-       'blockedVarsForExport' => 
-      array (
-      ),
-       'defaultValue' => NULL,
-       'defaultValueGenerator' => '',
-    )),
   ),
    'blockedVarsForExport' => 
   array (

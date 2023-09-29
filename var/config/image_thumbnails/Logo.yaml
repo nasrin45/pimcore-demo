@@ -3,10 +3,10 @@ pimcore:
         image:
             thumbnails:
                 definitions:
-                    shirt:
+                    Logo:
                         items: {  }
                         medias: {  }
-                        name: shirt
+                        name: Logo
                         description: ''
                         group: ''
                         format: SOURCE
@@ -16,6 +16,6 @@ pimcore:
                         preserveMetaData: false
                         rasterizeSVG: false
                         downloadable: false
-                        modificationDate: 1695795558
-                        creationDate: 1695795558
+                        modificationDate: 1695977940
+                        creationDate: 1695977940
                         preserveAnimation: false

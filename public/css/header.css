@@ -1,0 +1,88 @@
+.headerWrap{
+    width: 100%;
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo a{
+    display: inline-block;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+.logo a img{
+    width: 80px;
+}
+.navbar {
+    margin-right: -18px;
+    margin-top: 1px;
+    display: flex;
+    align-self: revert;
+}
+.navbar ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.navbar ul li{
+    width: auto;
+    display: inline-block;
+    margin: 0 5px;
+}
+.navbar ul li button{
+    border: none;
+    font-size: 16px;
+    font-weight: 300;
+    background: none;
+    text-transform: uppercase;
+    color: #1E2F4F;
+    letter-spacing: .65px;
+    position: relative;
+    padding-right: 13px;
+    padding-left: 20px;
+    cursor: grab;
+}
+.navbar ul li a, .navbar ul li p{
+    font-size: 16px;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: .65px;
+    padding: 0px;
+    text-decoration: none;
+    position: relative;
+    padding-right: 13px;
+    padding-left: 20px;
+}
+.navbar ul li a:hover{
+    color: #ffd813;
+}
+.navbar ul li a:active{
+    color: #ffd813;
+}
+.navbar ul li.active a{
+    color: #ffd813;
+}
+.bkground{
+    position: relative;
+    z-index: 1;
+}
+.bkground:after{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #121212;
+    opacity: 1;
+    content: "";
+    z-index: -1;
+}
+.embed{
+    margin: auto;
+    margin-top: 40px;
+}

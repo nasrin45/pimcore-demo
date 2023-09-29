@@ -1,0 +1,14 @@
+pimcore:
+    documents:
+        doc_types:
+            definitions:
+                0b7e390d-f478-436a-8f86-b3297b95c84b:
+                    name: Notification
+                    group: ''
+                    controller: 'App\Controller\UniversityController::notifyAction'
+                    template: null
+                    type: page
+                    priority: 0
+                    creationDate: 1695981734
+                    modificationDate: 1695981792
+                    staticGeneratorEnabled: false
