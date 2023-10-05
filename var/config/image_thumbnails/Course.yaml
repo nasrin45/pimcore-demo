@@ -1,0 +1,21 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    Course:
+                        items: {  }
+                        medias: {  }
+                        name: Course
+                        description: ''
+                        group: ''
+                        format: SOURCE
+                        quality: 85
+                        highResolution: null
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1696401325
+                        creationDate: 1696401318
+                        preserveAnimation: false

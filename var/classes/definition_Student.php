@@ -5,20 +5,19 @@
  * Variants: no
  *
  * Fields Summary:
- * - name [input]
- * - sku [input]
- * - description [wysiwyg]
- * - picture [image]
+ * - university [imageGallery]
+ * - results [structuredTable]
+ * - color [rgbaColor]
  */
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'dao' => NULL,
-   'id' => '1',
-   'name' => 'Product',
+   'id' => '4',
+   'name' => 'Student',
    'title' => '',
    'description' => '',
    'creationDate' => NULL,
-   'modificationDate' => 1696486780,
+   'modificationDate' => 1696486257,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -62,94 +61,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
          'children' => 
         array (
           0 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'name' => 'name',
-             'title' => 'Name',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'fieldtype' => '',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-             'blockedVarsForExport' => 
-            array (
-            ),
-             'defaultValue' => NULL,
-             'columnLength' => 190,
-             'regex' => '',
-             'regexFlags' => 
-            array (
-            ),
-             'unique' => false,
-             'showCharCount' => false,
-             'width' => '',
-             'defaultValueGenerator' => '',
-          )),
-          1 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'name' => 'sku',
-             'title' => 'Sku',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'fieldtype' => '',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-             'blockedVarsForExport' => 
-            array (
-            ),
-             'defaultValue' => NULL,
-             'columnLength' => 190,
-             'regex' => '',
-             'regexFlags' => 
-            array (
-            ),
-             'unique' => true,
-             'showCharCount' => false,
-             'width' => '',
-             'defaultValueGenerator' => '',
-          )),
-          2 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Wysiwyg::__set_state(array(
-             'name' => 'description',
-             'title' => 'Description',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'fieldtype' => '',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-             'blockedVarsForExport' => 
-            array (
-            ),
-             'toolbarConfig' => '',
-             'excludeFromSearchIndex' => false,
-             'maxCharacters' => '',
-             'height' => '',
-             'width' => '',
-          )),
-          3 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Image::__set_state(array(
-             'name' => 'picture',
-             'title' => 'Picture',
+          Pimcore\Model\DataObject\ClassDefinition\Data\ImageGallery::__set_state(array(
+             'name' => 'university',
+             'title' => 'University Images',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -166,8 +80,94 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
             array (
             ),
              'uploadPath' => '',
-             'width' => '',
+             'ratioX' => NULL,
+             'ratioY' => NULL,
+             'predefinedDataTemplates' => '',
              'height' => '',
+             'width' => '',
+          )),
+          1 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\StructuredTable::__set_state(array(
+             'name' => 'results',
+             'title' => 'Results',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'fieldtype' => '',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'labelWidth' => 0,
+             'labelFirstCell' => '',
+             'cols' => 
+            array (
+              0 => 
+              array (
+                'position' => 1,
+                'key' => 'date',
+                'label' => 'Date',
+                'type' => 'text',
+              ),
+              1 => 
+              array (
+                'type' => 'text',
+                'position' => 2,
+                'key' => 'result',
+                'label' => 'Result',
+              ),
+            ),
+             'rows' => 
+            array (
+              0 => 
+              array (
+                'position' => 1,
+                'key' => 'firstyear',
+                'label' => 'First Year',
+              ),
+              1 => 
+              array (
+                'position' => 2,
+                'key' => 'secondyear',
+                'label' => 'Second Year',
+              ),
+              2 => 
+              array (
+                'position' => 3,
+                'key' => 'thirdyear',
+                'label' => 'Third Year',
+              ),
+            ),
+             'height' => '',
+             'width' => '',
+          )),
+          2 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\RgbaColor::__set_state(array(
+             'name' => 'color',
+             'title' => 'Color',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'fieldtype' => '',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'width' => '',
           )),
         ),
          'locked' => false,
@@ -193,23 +193,13 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
      'labelWidth' => 100,
      'labelAlign' => 'left',
   )),
-   'icon' => '',
+   'icon' => '/bundles/pimcoreadmin/img/icon/group.png',
    'group' => '',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
    'previewGeneratorReference' => '',
    'compositeIndices' => 
   array (
-    0 => 
-    array (
-      'index_key' => 'mycomposite',
-      'index_type' => 'query',
-      'index_columns' => 
-      array (
-        0 => 'name',
-        1 => 'sku',
-      ),
-    ),
   ),
    'showFieldLookup' => false,
    'propertyVisibility' => 

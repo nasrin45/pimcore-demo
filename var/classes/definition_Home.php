@@ -5,20 +5,19 @@
  * Variants: no
  *
  * Fields Summary:
- * - name [input]
- * - sku [input]
- * - description [wysiwyg]
- * - picture [image]
+ * - localizedfields [localizedfields]
+ * -- about [wysiwyg]
+ * - announcement [table]
  */
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'dao' => NULL,
-   'id' => '1',
-   'name' => 'Product',
+   'id' => '5',
+   'name' => 'Home',
    'title' => '',
    'description' => '',
    'creationDate' => NULL,
-   'modificationDate' => 1696486780,
+   'modificationDate' => 1696486175,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -49,7 +48,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
     array (
       0 => 
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-         'name' => 'Layout',
+         'name' => 'Base',
          'type' => NULL,
          'region' => NULL,
          'title' => '',
@@ -62,39 +61,72 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
          'children' => 
         array (
           0 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'name' => 'name',
-             'title' => 'Name',
-             'tooltip' => '',
+          Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
+             'name' => 'localizedfields',
+             'title' => '',
+             'tooltip' => NULL,
              'mandatory' => false,
              'noteditable' => false,
              'index' => false,
              'locked' => false,
-             'style' => '',
+             'style' => NULL,
              'permissions' => NULL,
              'fieldtype' => '',
              'relationType' => false,
              'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
+             'visibleGridView' => true,
+             'visibleSearch' => true,
              'blockedVarsForExport' => 
             array (
             ),
-             'defaultValue' => NULL,
-             'columnLength' => 190,
-             'regex' => '',
-             'regexFlags' => 
+             'children' => 
+            array (
+              0 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Wysiwyg::__set_state(array(
+                 'name' => 'about',
+                 'title' => 'About',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'fieldtype' => '',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'toolbarConfig' => '',
+                 'excludeFromSearchIndex' => false,
+                 'maxCharacters' => '',
+                 'height' => '',
+                 'width' => '',
+              )),
+            ),
+             'region' => NULL,
+             'layout' => NULL,
+             'maxTabs' => NULL,
+             'border' => false,
+             'provideSplitView' => false,
+             'tabPosition' => 'top',
+             'hideLabelsWhenTabsReached' => NULL,
+             'referencedFields' => 
             array (
             ),
-             'unique' => false,
-             'showCharCount' => false,
-             'width' => '',
-             'defaultValueGenerator' => '',
+             'permissionView' => NULL,
+             'permissionEdit' => NULL,
+             'labelWidth' => 100,
+             'labelAlign' => 'left',
+             'fieldDefinitionsCache' => NULL,
           )),
           1 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'name' => 'sku',
-             'title' => 'Sku',
+          Pimcore\Model\DataObject\ClassDefinition\Data\Table::__set_state(array(
+             'name' => 'announcement',
+             'title' => 'Announcement',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -110,64 +142,17 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'blockedVarsForExport' => 
             array (
             ),
-             'defaultValue' => NULL,
-             'columnLength' => 190,
-             'regex' => '',
-             'regexFlags' => 
+             'cols' => NULL,
+             'colsFixed' => false,
+             'rows' => NULL,
+             'rowsFixed' => false,
+             'data' => '',
+             'columnConfigActivated' => false,
+             'columnConfig' => 
             array (
             ),
-             'unique' => true,
-             'showCharCount' => false,
-             'width' => '',
-             'defaultValueGenerator' => '',
-          )),
-          2 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Wysiwyg::__set_state(array(
-             'name' => 'description',
-             'title' => 'Description',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'fieldtype' => '',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-             'blockedVarsForExport' => 
-            array (
-            ),
-             'toolbarConfig' => '',
-             'excludeFromSearchIndex' => false,
-             'maxCharacters' => '',
              'height' => '',
              'width' => '',
-          )),
-          3 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Image::__set_state(array(
-             'name' => 'picture',
-             'title' => 'Picture',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'fieldtype' => '',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-             'blockedVarsForExport' => 
-            array (
-            ),
-             'uploadPath' => '',
-             'width' => '',
-             'height' => '',
           )),
         ),
          'locked' => false,
@@ -193,23 +178,13 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
      'labelWidth' => 100,
      'labelAlign' => 'left',
   )),
-   'icon' => '',
+   'icon' => '/bundles/pimcoreadmin/img/icon/home.png',
    'group' => '',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
    'previewGeneratorReference' => '',
    'compositeIndices' => 
   array (
-    0 => 
-    array (
-      'index_key' => 'mycomposite',
-      'index_type' => 'query',
-      'index_columns' => 
-      array (
-        0 => 'name',
-        1 => 'sku',
-      ),
-    ),
   ),
    'showFieldLookup' => false,
    'propertyVisibility' => 

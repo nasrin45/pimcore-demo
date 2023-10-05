@@ -10,9 +10,36 @@
     {% block content %}
         <h1>{{ pimcore_input("headline", {"width": 540}) }}</h1>
 
+
         {% for i in pimcore_block('courseblock').iterator %}
             <h3>{{ pimcore_input("course", {"width": 240}) }}</h3>
-        {% if editmode %}
+
+
+            {% if editmode %}
+                {{ pimcore_relation("details") }}
+            {% else %}
+                {% set courseRelation = pimcore_relation("details") %}
+                {% if courseRelation %}
+                    {% set course = courseRelation.element %}
+                    {% if course %}
+                        {% if course.course is not null %}
+                            {% for courseItem in course.course.items %}
+                                <h2>{{ courseItem.name }}</h2>
+                                <p><strong>Subjects: </strong>{{ courseItem.subjects | join(', ') }}</p>
+                                <p><strong>Course Duration: </strong>{{ courseItem.duration }} Years</p>
+                                {% if courseItem.image is instanceof('Pimcore\\Model\\Asset\\Image') %}
+                                    <img src="{{ courseItem.image.getThumbnail('Course') }}" style="width: 100px;">
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        <p><strong>Description: </strong>{{ course.description }}</p>
+                        <p><strong>More About Department: </strong><a href="{{ course.getDetailed().getPath() }}">Departments</a> </p>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+
+
+            {% if editmode %}
             {{ pimcore_multiselect('courseCategories', {
                 'width': 200,
                 'height': 100,

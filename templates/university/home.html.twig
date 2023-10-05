@@ -35,6 +35,37 @@
         }}
     </section>
 
+    {% if editmode %}
+    {{ pimcore_relation("home") }}
+    {% else %}
+        {% set home = pimcore_relation("home").element %}
+        {% if home %}
+            <p>{{ home.about }}</p>
+        {% endif %}
+        {% if tableData is not empty %}
+            <table>
+                <thead>
+                <tr>
+                    {% for header in tableData[0] %}
+                        <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                {% for rowIndex, row in tableData|slice(1) %}
+                    <tr>
+                        {% for cell in row %}
+                            <td>{{ cell }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No data available in the table.</p>
+        {% endif %}
+    {% endif %}
+
 {% endblock %}
 
 

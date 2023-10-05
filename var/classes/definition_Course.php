@@ -5,20 +5,20 @@
  * Variants: no
  *
  * Fields Summary:
- * - name [input]
- * - sku [input]
- * - description [wysiwyg]
- * - picture [image]
+ * - course [objectbricks]
+ * - description [textarea]
+ * - detailed [link]
+ * - relation [manyToManyRelation]
  */
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'dao' => NULL,
-   'id' => '1',
-   'name' => 'Product',
+   'id' => '6',
+   'name' => 'Course',
    'title' => '',
    'description' => '',
    'creationDate' => NULL,
-   'modificationDate' => 1696486780,
+   'modificationDate' => 1696503215,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -62,9 +62,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
          'children' => 
         array (
           0 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'name' => 'name',
-             'title' => 'Name',
+          Pimcore\Model\DataObject\ClassDefinition\Data\Objectbricks::__set_state(array(
+             'name' => 'course',
+             'title' => 'Course',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -80,49 +80,15 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'blockedVarsForExport' => 
             array (
             ),
-             'defaultValue' => NULL,
-             'columnLength' => 190,
-             'regex' => '',
-             'regexFlags' => 
+             'allowedTypes' => 
             array (
+              0 => 'course',
             ),
-             'unique' => false,
-             'showCharCount' => false,
-             'width' => '',
-             'defaultValueGenerator' => '',
+             'maxItems' => 10,
+             'border' => false,
           )),
           1 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'name' => 'sku',
-             'title' => 'Sku',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'fieldtype' => '',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-             'blockedVarsForExport' => 
-            array (
-            ),
-             'defaultValue' => NULL,
-             'columnLength' => 190,
-             'regex' => '',
-             'regexFlags' => 
-            array (
-            ),
-             'unique' => true,
-             'showCharCount' => false,
-             'width' => '',
-             'defaultValueGenerator' => '',
-          )),
-          2 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Wysiwyg::__set_state(array(
+          Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
              'name' => 'description',
              'title' => 'Description',
              'tooltip' => '',
@@ -140,16 +106,16 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'blockedVarsForExport' => 
             array (
             ),
-             'toolbarConfig' => '',
+             'maxLength' => NULL,
+             'showCharCount' => false,
              'excludeFromSearchIndex' => false,
-             'maxCharacters' => '',
              'height' => '',
              'width' => '',
           )),
-          3 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Image::__set_state(array(
-             'name' => 'picture',
-             'title' => 'Picture',
+          2 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Link::__set_state(array(
+             'name' => 'detailed',
+             'title' => 'Detailed Information',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -165,7 +131,64 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'blockedVarsForExport' => 
             array (
             ),
-             'uploadPath' => '',
+             'allowedTypes' => 
+            array (
+              0 => 'document',
+            ),
+             'allowedTargets' => 
+            array (
+              0 => '_self',
+            ),
+             'disabledFields' => 
+            array (
+            ),
+          )),
+          3 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyRelation::__set_state(array(
+             'name' => 'relation',
+             'title' => 'Relation',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'fieldtype' => '',
+             'relationType' => true,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'classes' => 
+            array (
+              0 => 
+              array (
+                'classes' => 'Faculty',
+              ),
+              1 => 
+              array (
+                'classes' => 'Department',
+              ),
+            ),
+             'displayMode' => NULL,
+             'pathFormatterClass' => '',
+             'maxItems' => NULL,
+             'assetInlineDownloadAllowed' => false,
+             'assetUploadPath' => '',
+             'allowToClearRelation' => true,
+             'objectsAllowed' => true,
+             'assetsAllowed' => false,
+             'assetTypes' => 
+            array (
+            ),
+             'documentsAllowed' => false,
+             'documentTypes' => 
+            array (
+            ),
+             'enableTextSelection' => false,
              'width' => '',
              'height' => '',
           )),
@@ -181,6 +204,31 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
          'labelWidth' => 100,
          'labelAlign' => 'left',
       )),
+      1 => 
+      Pimcore\Model\DataObject\ClassDefinition\Layout\Text::__set_state(array(
+         'name' => 'Layout',
+         'type' => NULL,
+         'region' => NULL,
+         'title' => '',
+         'width' => '',
+         'height' => '',
+         'collapsible' => false,
+         'collapsed' => false,
+         'bodyStyle' => '',
+         'datatype' => 'layout',
+         'children' => 
+        array (
+        ),
+         'locked' => false,
+         'blockedVarsForExport' => 
+        array (
+        ),
+         'fieldtype' => 'text',
+         'html' => '',
+         'renderingClass' => 'App\\Helpers\\CustomRenderer',
+         'renderingData' => 'some data',
+         'border' => false,
+      )),
     ),
      'locked' => false,
      'blockedVarsForExport' => 
@@ -193,23 +241,13 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
      'labelWidth' => 100,
      'labelAlign' => 'left',
   )),
-   'icon' => '',
+   'icon' => '/bundles/pimcoreadmin/img/icon/book.png',
    'group' => '',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
    'previewGeneratorReference' => '',
    'compositeIndices' => 
   array (
-    0 => 
-    array (
-      'index_key' => 'mycomposite',
-      'index_type' => 'query',
-      'index_columns' => 
-      array (
-        0 => 'name',
-        1 => 'sku',
-      ),
-    ),
   ),
    'showFieldLookup' => false,
    'propertyVisibility' => 

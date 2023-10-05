@@ -1,41 +1,23 @@
 <?php
 
 /**
- * Inheritance: no
- * Variants: no
- *
  * Fields Summary:
  * - name [input]
- * - sku [input]
- * - description [wysiwyg]
- * - picture [image]
+ * - subjects [multiselect]
+ * - duration [slider]
+ * - image [image]
  */
 
-return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
+return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
    'dao' => NULL,
-   'id' => '1',
-   'name' => 'Product',
-   'title' => '',
-   'description' => '',
-   'creationDate' => NULL,
-   'modificationDate' => 1696486780,
-   'userOwner' => 2,
-   'userModification' => 2,
+   'key' => 'course',
    'parentClass' => '',
    'implementsInterfaces' => '',
-   'listingParentClass' => '',
-   'useTraits' => '',
-   'listingUseTraits' => '',
-   'encryption' => false,
-   'encryptedTables' => 
-  array (
-  ),
-   'allowInherit' => false,
-   'allowVariants' => false,
-   'showVariants' => false,
+   'title' => '',
+   'group' => '',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-     'name' => 'pimcore_root',
+     'name' => NULL,
      'type' => NULL,
      'region' => NULL,
      'title' => NULL,
@@ -92,9 +74,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'defaultValueGenerator' => '',
           )),
           1 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'name' => 'sku',
-             'title' => 'Sku',
+          Pimcore\Model\DataObject\ClassDefinition\Data\Multiselect::__set_state(array(
+             'name' => 'subjects',
+             'title' => 'Subjects',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -110,21 +92,51 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'blockedVarsForExport' => 
             array (
             ),
-             'defaultValue' => NULL,
-             'columnLength' => 190,
-             'regex' => '',
-             'regexFlags' => 
+             'options' => 
             array (
+              0 => 
+              array (
+                'key' => 'Computer Science',
+                'value' => 'Computer Science',
+              ),
+              1 => 
+              array (
+                'key' => 'Physics',
+                'value' => 'Physics',
+              ),
+              2 => 
+              array (
+                'key' => 'Chemistry',
+                'value' => 'Chemistry',
+              ),
+              3 => 
+              array (
+                'key' => 'English',
+                'value' => 'English',
+              ),
+              4 => 
+              array (
+                'key' => 'Accounting',
+                'value' => 'Accounting',
+              ),
+              5 => 
+              array (
+                'key' => 'Business Management',
+                'value' => 'Business Management',
+              ),
             ),
-             'unique' => true,
-             'showCharCount' => false,
+             'maxItems' => NULL,
+             'renderType' => 'list',
+             'optionsProviderClass' => '',
+             'optionsProviderData' => '',
+             'dynamicOptions' => false,
+             'height' => '',
              'width' => '',
-             'defaultValueGenerator' => '',
           )),
           2 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Wysiwyg::__set_state(array(
-             'name' => 'description',
-             'title' => 'Description',
+          Pimcore\Model\DataObject\ClassDefinition\Data\Slider::__set_state(array(
+             'name' => 'duration',
+             'title' => 'Duration',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -140,16 +152,18 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'blockedVarsForExport' => 
             array (
             ),
-             'toolbarConfig' => '',
-             'excludeFromSearchIndex' => false,
-             'maxCharacters' => '',
+             'minValue' => 2.0,
+             'maxValue' => 3.0,
+             'vertical' => false,
+             'increment' => 1.0,
+             'decimalPrecision' => NULL,
              'height' => '',
              'width' => '',
           )),
           3 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Image::__set_state(array(
-             'name' => 'picture',
-             'title' => 'Picture',
+             'name' => 'image',
+             'title' => 'Image',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -193,57 +207,16 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
      'labelWidth' => 100,
      'labelAlign' => 'left',
   )),
-   'icon' => '',
-   'group' => '',
-   'showAppLoggerTab' => false,
-   'linkGeneratorReference' => '',
-   'previewGeneratorReference' => '',
-   'compositeIndices' => 
-  array (
-    0 => 
-    array (
-      'index_key' => 'mycomposite',
-      'index_type' => 'query',
-      'index_columns' => 
-      array (
-        0 => 'name',
-        1 => 'sku',
-      ),
-    ),
-  ),
-   'showFieldLookup' => false,
-   'propertyVisibility' => 
-  array (
-    'grid' => 
-    array (
-      'id' => true,
-      'key' => false,
-      'path' => true,
-      'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
-    ),
-    'search' => 
-    array (
-      'id' => true,
-      'key' => false,
-      'path' => true,
-      'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
-    ),
-  ),
-   'enableGridLocking' => false,
-   'deletedDataComponents' => 
-  array (
-  ),
+   'fieldDefinitionsCache' => NULL,
    'blockedVarsForExport' => 
   array (
   ),
-   'fieldDefinitionsCache' => 
+   'classDefinitions' => 
   array (
-  ),
-   'activeDispatchingEvents' => 
-  array (
+    0 => 
+    array (
+      'classname' => 'Course',
+      'fieldname' => 'course',
+    ),
   ),
 ));

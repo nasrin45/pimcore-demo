@@ -5,9 +5,8 @@
  * Variants: no
  *
  * Fields Summary:
- * - Name [input]
- * - Designation [input]
- * - Joined [date]
+ * - faculty [fieldcollections]
+ * - facultyvideo [video]
  */
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
@@ -17,7 +16,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'title' => '',
    'description' => '',
    'creationDate' => NULL,
-   'modificationDate' => 1695979672,
+   'modificationDate' => 1696487978,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -61,9 +60,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
          'children' => 
         array (
           0 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'name' => 'Name',
-             'title' => 'Name',
+          Pimcore\Model\DataObject\ClassDefinition\Data\Fieldcollections::__set_state(array(
+             'name' => 'faculty',
+             'title' => 'Faculty Info',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -79,21 +78,22 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'blockedVarsForExport' => 
             array (
             ),
-             'defaultValue' => NULL,
-             'columnLength' => 190,
-             'regex' => '',
-             'regexFlags' => 
+             'allowedTypes' => 
             array (
+              0 => 'mycollection',
             ),
-             'unique' => false,
-             'showCharCount' => false,
-             'width' => '',
-             'defaultValueGenerator' => '',
+             'lazyLoading' => true,
+             'maxItems' => NULL,
+             'disallowAddRemove' => false,
+             'disallowReorder' => false,
+             'collapsed' => false,
+             'collapsible' => false,
+             'border' => false,
           )),
           1 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'name' => 'Designation',
-             'title' => 'Designation',
+          Pimcore\Model\DataObject\ClassDefinition\Data\Video::__set_state(array(
+             'name' => 'facultyvideo',
+             'title' => 'Facultyvideo',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -109,40 +109,19 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'blockedVarsForExport' => 
             array (
             ),
-             'defaultValue' => NULL,
-             'columnLength' => 190,
-             'regex' => '',
-             'regexFlags' => 
+             'uploadPath' => '',
+             'allowedTypes' => 
             array (
             ),
-             'unique' => false,
-             'showCharCount' => false,
+             'supportedTypes' => 
+            array (
+              0 => 'asset',
+              1 => 'youtube',
+              2 => 'vimeo',
+              3 => 'dailymotion',
+            ),
+             'height' => '',
              'width' => '',
-             'defaultValueGenerator' => '',
-          )),
-          2 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Date::__set_state(array(
-             'name' => 'Joined',
-             'title' => 'Joined  date',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'fieldtype' => '',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-             'blockedVarsForExport' => 
-            array (
-            ),
-             'defaultValue' => NULL,
-             'useCurrentDate' => false,
-             'columnType' => 'bigint(20)',
-             'defaultValueGenerator' => '',
           )),
         ),
          'locked' => false,
@@ -168,7 +147,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
      'labelWidth' => 100,
      'labelAlign' => 'left',
   )),
-   'icon' => '',
+   'icon' => '/bundles/pimcoreadmin/img/icon/emoticon_evilgrin.png',
    'group' => '',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',

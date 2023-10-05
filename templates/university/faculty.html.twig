@@ -18,17 +18,22 @@
                 {% else %}
                     {% set faculty = pimcore_relation("faculty").element %}
                     {% if faculty %}
-                        <h2>{{ faculty.name }}</h2>
-                        <p>Designation {{ faculty.designation|raw }}</p>
-                        <p>Joined on {{ faculty.joined|raw }}</p>
+                        {% if faculty.faculty is not null %}
+                            {% for facultyItem in faculty.faculty.items %}
+                                <h2>{{ facultyItem.firstname }} {{ facultyItem.lastname }}</h2>
+                                <p><strong>Gender: </strong>{{ facultyItem.gender }}</p>
+                                <p><strong>Designation: </strong>{{ facultyItem.designation }}</p>
+                                <p><strong>Email: </strong>{{ facultyItem.email }}</p>
+                                <p><strong>Joined Date: </strong>{{ facultyItem.joined }}</p>
+                                <p><strong>Department: </strong>{{ facultyItem.department }}</p>
+                                {% if facultyItem.active %}
+                                    <p>Status: Active</p>
+                                {% else %}
+                                    <p>Status: Inactive</p>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
                     {% endif %}
-                {% endif %}
-                {{ pimcore_checkbox('facultyStatus', {'label': 'Active'}) }}
-
-                {% if pimcore_checkbox('facultyStatus').isChecked() %}
-                    <p>Status: Active</p>
-                {% else %}
-                    <p>Status: Inactive</p>
                 {% endif %}
             {% endfor %}
         </div>

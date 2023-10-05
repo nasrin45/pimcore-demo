@@ -5,10 +5,15 @@
  * Variants: no
  *
  * Fields Summary:
- * - name [input]
- * - location [input]
- * - hod [input]
+ * - dept [classificationstore]
  * - students [numericRange]
+ * - fund [consent]
+ * - geographic [block]
+ * -- coordinates [geopoint]
+ * -- bounds [geobounds]
+ * -- polygon [geopolygon]
+ * -- polyline [geopolyline]
+ * - faculty [manyToOneRelation]
  */
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
@@ -18,7 +23,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'title' => '',
    'description' => '',
    'creationDate' => NULL,
-   'modificationDate' => 1695986716,
+   'modificationDate' => 1696486861,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -62,9 +67,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
          'children' => 
         array (
           0 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'name' => 'name',
-             'title' => 'Name',
+          Pimcore\Model\DataObject\ClassDefinition\Data\Classificationstore::__set_state(array(
+             'name' => 'dept',
+             'title' => 'Dept',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -80,78 +85,29 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'blockedVarsForExport' => 
             array (
             ),
-             'defaultValue' => NULL,
-             'columnLength' => 190,
-             'regex' => '',
-             'regexFlags' => 
+             'children' => 
             array (
             ),
-             'unique' => false,
-             'showCharCount' => false,
-             'width' => '',
-             'defaultValueGenerator' => '',
+             'labelWidth' => 0,
+             'localized' => false,
+             'storeId' => 1,
+             'hideEmptyData' => false,
+             'disallowAddRemove' => false,
+             'referencedFields' => 
+            array (
+            ),
+             'fieldDefinitionsCache' => NULL,
+             'allowedGroupIds' => 
+            array (
+            ),
+             'activeGroupDefinitions' => 
+            array (
+            ),
+             'maxItems' => 8,
+             'height' => NULL,
+             'width' => NULL,
           )),
           1 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'name' => 'location',
-             'title' => 'Location',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'fieldtype' => '',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-             'blockedVarsForExport' => 
-            array (
-            ),
-             'defaultValue' => NULL,
-             'columnLength' => 190,
-             'regex' => '',
-             'regexFlags' => 
-            array (
-            ),
-             'unique' => false,
-             'showCharCount' => false,
-             'width' => '',
-             'defaultValueGenerator' => '',
-          )),
-          2 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'name' => 'hod',
-             'title' => 'Hod',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'fieldtype' => '',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-             'blockedVarsForExport' => 
-            array (
-            ),
-             'defaultValue' => NULL,
-             'columnLength' => 190,
-             'regex' => '',
-             'regexFlags' => 
-            array (
-            ),
-             'unique' => false,
-             'showCharCount' => false,
-             'width' => '',
-             'defaultValueGenerator' => '',
-          )),
-          3 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\NumericRange::__set_state(array(
              'name' => 'students',
              'title' => 'Students',
@@ -178,6 +134,209 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'decimalPrecision' => NULL,
              'width' => '',
           )),
+          2 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Consent::__set_state(array(
+             'name' => 'fund',
+             'title' => 'Fund',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'fieldtype' => '',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'defaultValue' => 0,
+             'width' => '',
+          )),
+          3 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Block::__set_state(array(
+             'name' => 'geographic',
+             'title' => 'Geographic',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'fieldtype' => '',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'lazyLoading' => false,
+             'disallowAddRemove' => false,
+             'disallowReorder' => false,
+             'collapsible' => false,
+             'collapsed' => false,
+             'maxItems' => NULL,
+             'styleElement' => '',
+             'children' => 
+            array (
+              0 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Geopoint::__set_state(array(
+                 'name' => 'coordinates',
+                 'title' => 'Coordinates',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'fieldtype' => '',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'lat' => 0.0,
+                 'lng' => 0.0,
+                 'zoom' => 1,
+                 'mapType' => 'roadmap',
+                 'height' => 180,
+                 'width' => '',
+              )),
+              1 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Geobounds::__set_state(array(
+                 'name' => 'bounds',
+                 'title' => 'Bounds',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'fieldtype' => '',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'lat' => 0.0,
+                 'lng' => 0.0,
+                 'zoom' => 1,
+                 'mapType' => 'roadmap',
+                 'height' => 180,
+                 'width' => '',
+              )),
+              2 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Geopolygon::__set_state(array(
+                 'name' => 'polygon',
+                 'title' => 'Polygon',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'fieldtype' => '',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'lat' => 0.0,
+                 'lng' => 0.0,
+                 'zoom' => 1,
+                 'mapType' => 'roadmap',
+                 'height' => 180,
+                 'width' => '',
+              )),
+              3 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Geopolyline::__set_state(array(
+                 'name' => 'polyline',
+                 'title' => 'Polyline',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'fieldtype' => '',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'lat' => 0.0,
+                 'lng' => 0.0,
+                 'zoom' => 1,
+                 'mapType' => 'roadmap',
+                 'height' => 180,
+                 'width' => '',
+              )),
+            ),
+             'layout' => NULL,
+             'referencedFields' => 
+            array (
+            ),
+             'fieldDefinitionsCache' => NULL,
+          )),
+          4 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
+             'name' => 'faculty',
+             'title' => 'Faculty',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'fieldtype' => '',
+             'relationType' => true,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'classes' => 
+            array (
+              0 => 
+              array (
+                'classes' => 'Faculty',
+              ),
+            ),
+             'displayMode' => 'grid',
+             'pathFormatterClass' => '',
+             'assetInlineDownloadAllowed' => false,
+             'assetUploadPath' => '',
+             'allowToClearRelation' => true,
+             'objectsAllowed' => true,
+             'assetsAllowed' => false,
+             'assetTypes' => 
+            array (
+            ),
+             'documentsAllowed' => false,
+             'documentTypes' => 
+            array (
+            ),
+             'width' => '',
+          )),
         ),
          'locked' => false,
          'blockedVarsForExport' => 
@@ -202,13 +361,22 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
      'labelWidth' => 100,
      'labelAlign' => 'left',
   )),
-   'icon' => '',
+   'icon' => '/bundles/pimcoreadmin/img/icon/building.png',
    'group' => '',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
    'previewGeneratorReference' => '',
    'compositeIndices' => 
   array (
+    0 => 
+    array (
+      'index_key' => 'mycomposite',
+      'index_type' => 'query',
+      'index_columns' => 
+      array (
+        0 => 'fund',
+      ),
+    ),
   ),
    'showFieldLookup' => false,
    'propertyVisibility' => 
