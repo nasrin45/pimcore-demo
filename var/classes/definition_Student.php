@@ -17,7 +17,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'title' => '',
    'description' => '',
    'creationDate' => NULL,
-   'modificationDate' => 1696486257,
+   'modificationDate' => 1696850189,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -168,6 +168,29 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
             array (
             ),
              'width' => '',
+          )),
+          3 => 
+          Pimcore\Model\DataObject\ClassDefinition\Layout\Iframe::__set_state(array(
+             'name' => 'Layout',
+             'type' => NULL,
+             'region' => NULL,
+             'title' => '',
+             'width' => '',
+             'height' => '',
+             'collapsible' => false,
+             'collapsed' => false,
+             'bodyStyle' => NULL,
+             'datatype' => 'layout',
+             'children' => 
+            array (
+            ),
+             'locked' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'fieldtype' => 'iframe',
+             'iframeUrl' => '/iframe/summary',
+             'renderingData' => 'sample',
           )),
         ),
          'locked' => false,

@@ -23,7 +23,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'title' => '',
    'description' => '',
    'creationDate' => NULL,
-   'modificationDate' => 1696486861,
+   'modificationDate' => 1696830784,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -364,7 +364,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'icon' => '/bundles/pimcoreadmin/img/icon/building.png',
    'group' => '',
    'showAppLoggerTab' => false,
-   'linkGeneratorReference' => '',
+   'linkGeneratorReference' => 'App\\Website\\LinkGenerator\\DepartmentLinkGenerator',
    'previewGeneratorReference' => '',
    'compositeIndices' => 
   array (

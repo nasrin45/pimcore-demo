@@ -30,6 +30,13 @@ parameters:
     #pimcore_executable_dot: /usr/bin/dot
 
 services:
+    App\Website\LinkGenerator\DepartmentLinkGenerator:
+        public: true
+
+    App\Service\PreviewParamProvider\DepartmentPreviewParamProvider:
+        arguments:
+            $departmentLinkGenerator: '@App\Website\LinkGenerator\DepartmentLinkGenerator'
+
     # default configuration for services in *this* file
     _defaults:
         # automatically injects dependencies in your services

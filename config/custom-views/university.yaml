@@ -1,0 +1,44 @@
+pimcore:
+    custom_views:
+        definitions:
+            university_custom_view:
+                name: University
+                treetype: document
+                position: right
+                rootfolder: /University
+                showroot: true
+                sort: 0
+                treeContextMenu:
+                    document:
+                        items:
+                            add: true
+                            addSnippet: true
+                            addLink: true
+                            addEmail: true
+                            addHardlink: true
+                            addFolder: true
+                            paste: true
+                            pasteCut: true
+                            copy: true
+                            cut: true
+                            rename: true
+                            unpublish: true
+                            publish: true
+                            delete: true
+                            open: true
+                            convert: true
+                            searchAndMove: true
+                            useAsSite: true
+                            editSite: true
+                            removeSite: true
+                            lock: true
+                            unlock: true
+                            lockAndPropagate: true
+                            unlockAndPropagate: true
+                            reload: true
+                classes: ''
+                joins: []
+                id: university_custom_view
+                icon: /bundles/pimcoreadmin/img/flat-color-icons/reading.svg
+                where: "o_path LIKE '/h%' OR o_path LIKE '/d%' OR o_path LIKE '/c%'"
+                having: ''
