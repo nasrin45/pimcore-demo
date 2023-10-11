@@ -30,6 +30,9 @@ class UniversityController extends FrontendController
     public function universityAction(Request $request): \Symfony\Component\HttpFoundation\Response
     {
 
+        $about = Home::getById(12);
+        $aboutText = $about->getAbout('fr');
+
         $class = ClassDefinition::getById(5);
         $fields = $class->getFieldDefinitions();
 
@@ -43,6 +46,7 @@ class UniversityController extends FrontendController
         $tableData = $dataObject->getAnnouncement();
 
         return $this->render('university/home.html.twig',[
+            'aboutText'=>$aboutText,
             'tableData'=>$tableData,
         ]);
     }
@@ -69,6 +73,9 @@ class UniversityController extends FrontendController
             'course' => $course,
         ]);
     }
+    /**
+     * @Route("/department/{departmentId}", name="dept_info")
+     */
     public function departmentAction(Request $request): \Symfony\Component\HttpFoundation\Response
     {
 

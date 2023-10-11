@@ -4,7 +4,24 @@ pimcore:
             thumbnails:
                 definitions:
                     Course:
-                        items: {  }
+                        items:
+                            -
+                                method: scaleByWidth
+                                arguments:
+                                    width: 500
+                                    forceResize: false
+                            -
+                                method: roundCorners
+                                arguments:
+                                    width: 10
+                                    height: 10
+                            -
+                                method: crop
+                                arguments:
+                                    width: 300
+                                    height: 100
+                                    x: 0
+                                    'y': 131
                         medias: {  }
                         name: Course
                         description: ''
@@ -16,6 +33,6 @@ pimcore:
                         preserveMetaData: false
                         rasterizeSVG: false
                         downloadable: false
-                        modificationDate: 1696401325
+                        modificationDate: 1697006058
                         creationDate: 1696401318
                         preserveAnimation: false

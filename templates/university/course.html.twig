@@ -28,7 +28,7 @@
                                 <p><strong>Subjects: </strong>{{ courseItem.subjects | join(', ') }}</p>
                                 <p><strong>Course Duration: </strong>{{ courseItem.duration }} Years</p>
                                 {% if courseItem.image is instanceof('Pimcore\\Model\\Asset\\Image') %}
-                                    <img src="{{ courseItem.image.getThumbnail('Course') }}" style="width: 100px;">
+                                    <img src="{{ courseItem.image.getThumbnail('Course') }}">
                                 {% endif %}
                             {% endfor %}
                         {% endif %}

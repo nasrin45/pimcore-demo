@@ -7,10 +7,12 @@ pimcore:
             - en
             - de
             - fr
+            - ar
         fallback_languages:
             en: ''
             de: ''
             fr: ''
+            ar: ''
         default_language: en
         debug_admin_translations: false
     documents:
@@ -23,6 +25,7 @@ pimcore:
                 en: ''
                 de: ''
                 fr: ''
+                ar: ''
     objects:
         versions:
             days: null
