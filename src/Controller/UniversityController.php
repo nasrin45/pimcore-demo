@@ -5,6 +5,8 @@ namespace App\Controller;
 use Exception;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Model\Asset;
+use Pimcore\Model\DataObject\ClassDefinition;
+use Pimcore\Model\DataObject\Exception\DefinitionWriteException;
 use Pimcore\Model\DataObject\Service;
 use Pimcore\Model\DataObject\Course;
 use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
@@ -21,24 +23,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UniversityController extends FrontendController
 {
-    public function universityAction(Request $request): \Symfony\Component\HttpFoundation\Response
-    {
-        $dataObject = Home::getById(12);
-        $tableData = $dataObject->getAnnouncement();
-
-        return $this->render('university/home.html.twig',[
-            'tableData'=>$tableData,
-        ]);
-    }
-
     /**
+     * @throws DefinitionWriteException
      * @throws Exception
      */
-    public function courseAction(Request $request): \Symfony\Component\HttpFoundation\Response
+    public function universityAction(Request $request): \Symfony\Component\HttpFoundation\Response
     {
-        $course = Course::getById(19);
 
-        $class = DataObject\ClassDefinition::getById('course');
+        $class = ClassDefinition::getById(5);
         $fields = $class->getFieldDefinitions();
 
         foreach ($fields as $field) {
@@ -47,13 +39,29 @@ class UniversityController extends FrontendController
 
         $class->save();
 
+        $dataObject = Home::getById(12);
+        $tableData = $dataObject->getAnnouncement();
+
+        return $this->render('university/home.html.twig',[
+            'tableData'=>$tableData,
+        ]);
+    }
+
+
+    /**
+     * @throws Exception
+     */
+    public function courseAction(Request $request): \Symfony\Component\HttpFoundation\Response
+    {
+        $course = Course::getById(19);
+
+
         $courseBrick = new \Pimcore\Model\DataObject\Objectbrick\Data\Course($course);
         $courseBrick->setName("CS");
         $courseBrick->setSubjects(["Subject1", "Subject2"]);
         $courseBrick->setDuration(3.0);
 
         $course->getCourse()->setCourse($courseBrick);
-//        dd($course);
 
         $course->save();
 

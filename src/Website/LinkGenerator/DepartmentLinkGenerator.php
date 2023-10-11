@@ -4,11 +4,11 @@ namespace App\Website\LinkGenerator;
 
 use Pimcore\Model\DataObject;
 use Pimcore\Model\DataObject\ClassDefinition\LinkGeneratorInterface;
-use Pimcore\Model\DataObject\Concrete;
-use Pimcore\Model\DataObject\Data\QuantityValue;
+use Pimcore\Model\DataObject\Department;
 
 class DepartmentLinkGenerator implements LinkGeneratorInterface
 {
+
     public function generate(object $object, array $params = []): string
     {
         if (!($object instanceof \Pimcore\Model\DataObject\Department)) {
@@ -18,19 +18,19 @@ class DepartmentLinkGenerator implements LinkGeneratorInterface
         return $this->doGenerate($object, $params);
     }
 
-    protected function doGenerate(\Pimcore\Model\DataObject\Department $object, array $params): string
+    protected function doGenerate(Department $object, array $params): string
     {
-        // Retrieve the department name from the classification store
-        $departmentName = $this->getDeptName($object);
+        return DataObject\Service::useInheritedValues(true, function () use ($object, $params) {
+            $departmentName = $this->getDeptName($object);
 
-        // You can use the department name in your URL generation logic
-        $departmentId = $object->getClassName();
+            $formattedDepartmentName = strtolower(str_replace(' ', '-', $departmentName));
 
-        // Generate the URL based on your requirements
-        $url = '/department/' . $departmentName . '/' . $departmentId;
+            $url = '/department/' . $formattedDepartmentName . '/' . $object->getClassName();
 
-        return $url;
+            return $url;
+        });
     }
+
 
     protected function getDeptName(\Pimcore\Model\DataObject\Department $department): ?string
     {

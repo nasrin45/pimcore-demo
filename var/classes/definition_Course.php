@@ -18,7 +18,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'title' => '',
    'description' => '',
    'creationDate' => NULL,
-   'modificationDate' => 1696503215,
+   'modificationDate' => 1696917615,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -174,7 +174,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               ),
             ),
              'displayMode' => NULL,
-             'pathFormatterClass' => '',
+             'pathFormatterClass' => 'App\\PathFormatter\\DepartmentPathFormatter',
              'maxItems' => NULL,
              'assetInlineDownloadAllowed' => false,
              'assetUploadPath' => '',
@@ -183,10 +183,18 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'assetsAllowed' => false,
              'assetTypes' => 
             array (
+              0 => 
+              array (
+                'assetTypes' => '',
+              ),
             ),
              'documentsAllowed' => false,
              'documentTypes' => 
             array (
+              0 => 
+              array (
+                'documentTypes' => '',
+              ),
             ),
              'enableTextSelection' => false,
              'width' => '',
