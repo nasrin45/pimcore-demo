@@ -3,19 +3,21 @@
 namespace App\Controller;
 
 use Exception;
+use Pimcore\Bundle\ApplicationLoggerBundle\ApplicationLogger;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Model\Asset;
 use Pimcore\Model\DataObject\ClassDefinition;
 use Pimcore\Model\DataObject\Exception\DefinitionWriteException;
 use Pimcore\Model\DataObject\Service;
 use Pimcore\Model\DataObject\Course;
-use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
 use Pimcore\Model\DataObject\Data\QuantityValue;
 use Pimcore\Model\DataObject\Department;
 use Pimcore\Model\DataObject\Faculty;
 use Pimcore\Model\DataObject\Home;
 use Pimcore\Model\DataObject\Student;
 use Pimcore\Model\Document\Link;
+use Pimcore\Model\Element\Note;
+use Pimcore\Model\User;
 use Symfony\Bridge\Twig\Attribute\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,8 +32,29 @@ class UniversityController extends FrontendController
     public function universityAction(Request $request): \Symfony\Component\HttpFoundation\Response
     {
 
+        $tag =  new \Pimcore\Model\Element\Tag();
+        try {
+            $tag->setName('Type')->save();
+            \Pimcore\Model\Element\Tag::addTagToElement('object', 12, $tag);
+        } catch (Exception $e) {
+            // ....
+        }
+
+
         $about = Home::getById(12);
         $aboutText = $about->getAbout('fr');
+
+        $home = new \App\Model\DataObject\Home();
+        $home->setCampus('MCC');
+
+        $note = new Note();
+        $note->setElement($about);
+        $note->setDate(time());
+        $note->setType("notice");
+        $note->setTitle("This is modified");
+        $note->setUser(0);
+        $note->addData("myModifiedText", "modifiedText", "Some Modified Text");
+        $note->save();
 
         $class = ClassDefinition::getById(5);
         $fields = $class->getFieldDefinitions();
@@ -47,6 +70,7 @@ class UniversityController extends FrontendController
 
         return $this->render('university/home.html.twig',[
             'aboutText'=>$aboutText,
+            'home' => $home,
             'tableData'=>$tableData,
         ]);
     }
@@ -59,6 +83,8 @@ class UniversityController extends FrontendController
     {
         $course = Course::getById(19);
 
+//        $versions = $course->getVersions();
+
 
         $courseBrick = new \Pimcore\Model\DataObject\Objectbrick\Data\Course($course);
         $courseBrick->setName("CS");
@@ -70,6 +96,7 @@ class UniversityController extends FrontendController
         $course->save();
 
         return $this->render('university/course.html.twig', [
+//            'version'=> $versions,
             'course' => $course,
         ]);
     }
@@ -114,12 +141,12 @@ class UniversityController extends FrontendController
             $classificationStoreData[] = $groupData;
         }
 
-//        $keyConfig = new \Pimcore\Model\DataObject\Classificationstore\KeyConfig();
-//        $keyConfig->setName("Name");
-//        $keyConfig->setDescription("");
-//        $keyConfig->setEnabled(true);
-//        $keyConfig->setType("text");
-//        $keyConfig->save();
+        $keyConfig = new \Pimcore\Model\DataObject\Classificationstore\KeyConfig();
+        $keyConfig->setName("Name");
+        $keyConfig->setDescription("");
+        $keyConfig->setEnabled(true);
+        $keyConfig->setType("text");
+        $keyConfig->save();
 
         $object = Department::getById(10);
         $blockItems = $object->getGeographic();
@@ -148,7 +175,25 @@ class UniversityController extends FrontendController
     public function facultyAction(Request $request): \Symfony\Component\HttpFoundation\Response
     {
         $faculty = Faculty::getById(8);
+//
+        $user =
+            User::create([
+            "parentId" => 1,
+            "username" => "faculty",
+            "password" => "password",
+            "hasCredentials" => true,
+            "active" => true
+        ]);
+
+        $faculties = new Faculty();
+        $faculties->setUser($user->getId());
+
+        $campus = new \App\Model\DataObject\Home();
+        $campus->setCampus('MCC');
+
+
         return $this->render('university/faculty.html.twig', [
+            'campus' => $campus,
             'faculty' => $faculty,
         ]);
     }
@@ -173,6 +218,9 @@ class UniversityController extends FrontendController
         return $this->render('footer.html.twig');
     }
 
+    /**
+     * @Route("/notify", name="notify")
+     */
     public function notifyAction(Request $request): \Symfony\Component\HttpFoundation\Response
     {
 
@@ -231,6 +279,11 @@ class UniversityController extends FrontendController
         return new Response($response);
     }
 
-
+    public function loggerAction(ApplicationLogger $logger): void
+    {
+        $logger->error('Your error message');
+        $logger->alert('Your alert');
+        $logger->debug('Your debug message', ['foo' => 'bar']);
+    }
 
 }

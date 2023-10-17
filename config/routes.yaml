@@ -4,3 +4,7 @@ _pimcore:
 app:
     resource: "../src/Controller/"
     type: annotation
+
+custom_admin_entry_point:
+    path: /custom-login
+    controller: Pimcore\Bundle\CoreBundle\Controller\PublicServicesController::customAdminEntryPointAction

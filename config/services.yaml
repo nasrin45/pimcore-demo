@@ -30,6 +30,18 @@ parameters:
     #pimcore_executable_dot: /usr/bin/dot
 
 services:
+
+    App\Service\CustomService:
+        arguments:
+            $customLogger: '@monolog.logger.custom_log'
+
+    App\Command\MyCommand: ~
+
+    App\LoggerService:
+        arguments:
+            $logger: '@pimcore.logger.application'
+
+
     App\Website\LinkGenerator\DepartmentLinkGenerator:
         public: true
 

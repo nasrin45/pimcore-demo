@@ -5,9 +5,33 @@ parameters:
     pimcore.commandline.php_executable: /usr/bin/php/php-cli
     pimcore.document.asset.ffmpeg: /usr/bin/ffmpeg
 
+pimcore_admin:
+
+    custom_admin_path_identifier: min20CharCustomToken
+
+    objects:
+        notes_events:
+            types:
+                - "notice"
+                - "home"
+                - "warning"
+                - "content"
+                - "seo"
+
 pimcore:
 
-# IMPORTANT Notice!
+    models:
+        class_overrides:
+            'Pimcore\Model\DataObject\Home': 'App\Model\DataObject\Home'
+
+
+    documents:
+        auto_save_interval: 60
+
+        objects:
+            auto_save_interval: 60
+
+    # IMPORTANT Notice!
 # Following there are only some examples listed, for a full list of possible options, please run the following command:
 # ./bin/console debug:config pimcore
 # you can also filter them by path, eg.

@@ -5,22 +5,21 @@
  * Variants: no
  *
  * Fields Summary:
- * - faculty [fieldcollections]
- * - facultyvideo [video]
- * - user [user]
+ * - test [manyToManyObjectRelation]
+ * - relation [manyToOneRelation]
  */
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'dao' => NULL,
-   'id' => '2',
-   'name' => 'Faculty',
+   'id' => 'xyz',
+   'name' => 'Xyz',
    'title' => '',
    'description' => '',
    'creationDate' => NULL,
-   'modificationDate' => 1697532761,
+   'modificationDate' => 1697459128,
    'userOwner' => 2,
    'userModification' => 2,
-   'parentClass' => 'App\\Model\\DataObject\\Faculty',
+   'parentClass' => '',
    'implementsInterfaces' => '',
    'listingParentClass' => '',
    'useTraits' => '',
@@ -61,9 +60,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
          'children' => 
         array (
           0 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Fieldcollections::__set_state(array(
-             'name' => 'faculty',
-             'title' => 'Faculty Info',
+          Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
+             'name' => 'test',
+             'title' => 'Test',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -72,29 +71,40 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'fieldtype' => '',
-             'relationType' => false,
+             'relationType' => true,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
              'blockedVarsForExport' => 
             array (
             ),
-             'allowedTypes' => 
+             'classes' => 
             array (
-              0 => 'mycollection',
+              0 => 
+              array (
+                'classes' => 'Course',
+              ),
             ),
-             'lazyLoading' => true,
+             'displayMode' => 'grid',
+             'pathFormatterClass' => '',
              'maxItems' => NULL,
-             'disallowAddRemove' => false,
-             'disallowReorder' => false,
-             'collapsed' => false,
-             'collapsible' => false,
-             'border' => false,
+             'visibleFields' => 
+            array (
+            ),
+             'allowToCreateNewObject' => false,
+             'allowToClearRelation' => true,
+             'optimizedAdminLoading' => false,
+             'enableTextSelection' => false,
+             'visibleFieldDefinitions' => 
+            array (
+            ),
+             'width' => '',
+             'height' => '',
           )),
           1 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Video::__set_state(array(
-             'name' => 'facultyvideo',
-             'title' => 'Facultyvideo',
+          Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
+             'name' => 'relation',
+             'title' => 'Relation',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -103,55 +113,35 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'fieldtype' => '',
-             'relationType' => false,
+             'relationType' => true,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
              'blockedVarsForExport' => 
             array (
             ),
-             'uploadPath' => '',
-             'allowedTypes' => 
+             'classes' => 
+            array (
+              0 => 
+              array (
+                'classes' => 'Department',
+              ),
+            ),
+             'displayMode' => 'grid',
+             'pathFormatterClass' => '',
+             'assetInlineDownloadAllowed' => false,
+             'assetUploadPath' => '',
+             'allowToClearRelation' => true,
+             'objectsAllowed' => true,
+             'assetsAllowed' => false,
+             'assetTypes' => 
             array (
             ),
-             'supportedTypes' => 
+             'documentsAllowed' => false,
+             'documentTypes' => 
             array (
-              0 => 'asset',
-              1 => 'youtube',
-              2 => 'vimeo',
-              3 => 'dailymotion',
             ),
-             'height' => '',
              'width' => '',
-          )),
-          2 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\User::__set_state(array(
-             'name' => 'user',
-             'title' => 'User',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'fieldtype' => '',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-             'blockedVarsForExport' => 
-            array (
-            ),
-             'options' => NULL,
-             'defaultValue' => NULL,
-             'optionsProviderClass' => NULL,
-             'optionsProviderData' => NULL,
-             'columnLength' => 190,
-             'dynamicOptions' => false,
-             'defaultValueGenerator' => '',
-             'width' => NULL,
-             'unique' => false,
           )),
         ),
          'locked' => false,
@@ -177,7 +167,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
      'labelWidth' => 100,
      'labelAlign' => 'left',
   )),
-   'icon' => '/bundles/pimcoreadmin/img/icon/emoticon_evilgrin.png',
+   'icon' => '',
    'group' => '',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',

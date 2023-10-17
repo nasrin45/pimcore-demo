@@ -9,6 +9,10 @@
 
 {% block content %}
 
+    {{ pimcore_website_config('custom', 'NOT SET') }}
+
+    <p>Campus: {{ home.getCampus() }}</p>
+
     <h1>{{ pimcore_input("headline", {"width": 540}) }}</h1>
 
     {{ pimcore_areablock('new',{
@@ -67,6 +71,9 @@
     {% endif %}
 
     {{ aboutText|raw }}
+
+    {% set new = document.getProperty('new_key') %}
+    {{ new }}
 
 
 {% endblock %}
