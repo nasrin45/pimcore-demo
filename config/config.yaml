@@ -20,6 +20,11 @@ pimcore_admin:
 
 pimcore:
 
+    bundles:
+        search_paths:
+            - src/CustomBundle
+            - src/DemoBundle
+
     models:
         class_overrides:
             'Pimcore\Model\DataObject\Home': 'App\Model\DataObject\Home'
@@ -163,4 +168,7 @@ framework:
 #     return:
 #         name: ''
 #         email: ''
+doctrine_migrations:
+    migrations_paths:
+        'App\Migrations': '%kernel.project_dir%/src/Migrations'
 

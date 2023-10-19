@@ -70,7 +70,9 @@
         {% endif %}
     {% endif %}
 
-    {{ aboutText|raw }}
+    <strong>Location: {{ home.location }}</strong>
+
+    <p>{{ aboutText|raw }}</p>
 
     {% set new = document.getProperty('new_key') %}
     {{ new }}

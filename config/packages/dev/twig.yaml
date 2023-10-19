@@ -1,0 +1,5 @@
+twig:
+    default_path: "%kernel.project_dir%/templates"
+    paths:
+        '%kernel.project_dir%/src/CustomBundle/src/templates': CustomBundle
+        '%kernel.project_dir%/bundles/DemoBundle/src/templates': DemoBundle

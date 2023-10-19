@@ -32,13 +32,13 @@ class UniversityController extends FrontendController
     public function universityAction(Request $request): \Symfony\Component\HttpFoundation\Response
     {
 
-        $tag =  new \Pimcore\Model\Element\Tag();
-        try {
-            $tag->setName('Type')->save();
-            \Pimcore\Model\Element\Tag::addTagToElement('object', 12, $tag);
-        } catch (Exception $e) {
-            // ....
-        }
+//        $tag =  new \Pimcore\Model\Element\Tag();
+//        try {
+//            $tag->setName('Type')->save();
+//            \Pimcore\Model\Element\Tag::addTagToElement('object', 12, $tag);
+//        } catch (Exception $e) {
+//            // ....
+//        }
 
 
         $about = Home::getById(12);
@@ -141,12 +141,12 @@ class UniversityController extends FrontendController
             $classificationStoreData[] = $groupData;
         }
 
-        $keyConfig = new \Pimcore\Model\DataObject\Classificationstore\KeyConfig();
-        $keyConfig->setName("Name");
-        $keyConfig->setDescription("");
-        $keyConfig->setEnabled(true);
-        $keyConfig->setType("text");
-        $keyConfig->save();
+//        $keyConfig = new \Pimcore\Model\DataObject\Classificationstore\KeyConfig();
+//        $keyConfig->setName("Name");
+//        $keyConfig->setDescription("");
+//        $keyConfig->setEnabled(true);
+//        $keyConfig->setType("text");
+//        $keyConfig->save();
 
         $object = Department::getById(10);
         $blockItems = $object->getGeographic();
@@ -176,17 +176,17 @@ class UniversityController extends FrontendController
     {
         $faculty = Faculty::getById(8);
 //
-        $user =
-            User::create([
-            "parentId" => 1,
-            "username" => "faculty",
-            "password" => "password",
-            "hasCredentials" => true,
-            "active" => true
-        ]);
-
-        $faculties = new Faculty();
-        $faculties->setUser($user->getId());
+//        $user =
+//            User::create([
+//            "parentId" => 1,
+//            "username" => "faculty",
+//            "password" => "password",
+//            "hasCredentials" => true,
+//            "active" => true
+//        ]);
+//
+//        $faculties = new Faculty();
+//        $faculties->setUser($user->getId());
 
         $campus = new \App\Model\DataObject\Home();
         $campus->setCampus('MCC');
