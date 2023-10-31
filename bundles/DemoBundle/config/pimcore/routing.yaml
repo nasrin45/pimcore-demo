@@ -4,5 +4,5 @@ demo:
     prefix:   /
 
 product_preview:
-    path: /preview/product
+    path: /preview/product/{id}
     controller: DemoBundle\Controller\ProductPreviewController::previewProductAction

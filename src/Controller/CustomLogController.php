@@ -2,13 +2,12 @@
 
 namespace App\Controller;
 
-use App\Model\DataObject\Home;
 use App\Service\CustomService;
+use DemoBundle\Model\Vote\Listing;
 use Pimcore\Controller\FrontendController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Pimcore\Tool\DeviceDetector;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
-
 
 
 class CustomLogController extends FrontendController
@@ -18,7 +17,6 @@ class CustomLogController extends FrontendController
      */
     public function someAction(CustomService $customLogger): JsonResponse
     {
-
         $device = DeviceDetector::getInstance();
         $device->getDevice();
         echo $device;
@@ -31,5 +29,6 @@ class CustomLogController extends FrontendController
             // Handle the exception, log the error, or return an error response
             return new JsonResponse(['message' => 'Logger failed'], 500); // Return an error response
         }
+
     }
 }

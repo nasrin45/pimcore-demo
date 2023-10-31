@@ -6,15 +6,15 @@ use Psr\Log\LoggerInterface;
 
 class CustomService
 {
- private LoggerInterface $customLogger;
+    private LoggerInterface $customLogger;
 
- public function __construct(LoggerInterface $customLogger)
- {
- $this->customLogger = $customLogger;
- }
+    public function __construct(LoggerInterface $customLogger)
+    {
+        $this->customLogger = $customLogger;
+    }
 
- public function logCustomMessage(): void
- {
- $this->customLogger->debug('This is custom log');
- }
+    public function logCustomMessage(): void
+    {
+        $this->customLogger->debug('This is custom log');
+     }
 }

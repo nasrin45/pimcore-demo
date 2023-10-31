@@ -11,7 +11,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20231018083508 extends AbstractMigration
+final class Version20231025052531 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,6 +20,11 @@ final class Version20231018083508 extends AbstractMigration
 
     public function up(Schema $schema): void
     {
+        $votesTable = $schema->createTable('votes');
+        $votesTable->addColumn('id', Types::INTEGER, ['autoincrement' => true]);
+        $votesTable->addColumn('username', Types::STRING, ['notnull' => false, 'length' => 255]);
+        $votesTable->addColumn('score', Types::INTEGER, ['notnull' => false, 'length' => 5]);
+        $votesTable->setPrimaryKey(['id']);
 
     }
 

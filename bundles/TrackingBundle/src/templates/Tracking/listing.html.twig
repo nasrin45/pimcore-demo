@@ -1,0 +1,13 @@
+{% block content %}
+<h1>Admin Activities</h1>
+
+<ul>
+    {% for activity in activities %}
+        <li>
+            <strong>Action:</strong> {{ activity.action }}<br>
+            <strong>Admin ID:</strong> {{ activity.admin_id }}<br>
+            <strong>Timestamp:</strong> {{ activity.timestamp|date('Y-m-d H:i:s') }}
+        </li>
+    {% endfor %}
+</ul>
+

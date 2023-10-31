@@ -3,3 +3,4 @@ twig:
     paths:
         '%kernel.project_dir%/src/CustomBundle/src/templates': CustomBundle
         '%kernel.project_dir%/bundles/DemoBundle/src/templates': DemoBundle
+        '%kernel.project_dir%/bundles/TrackingBundle/src/templates': TrackingBundle
