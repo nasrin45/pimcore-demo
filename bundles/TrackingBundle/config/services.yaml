@@ -23,6 +23,8 @@ services:
         tags:
             - { name: 'kernel.event_subscriber' }
 
+    TrackingBundle\Command\CreateDataObjectsCommand: ~
+
 # add more services, or override services that need manual wiring
 #    CustomBundle\ExampleClass:
 #        arguments:

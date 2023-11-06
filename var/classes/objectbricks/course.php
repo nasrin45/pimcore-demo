@@ -218,5 +218,10 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
       'classname' => 'Course',
       'fieldname' => 'course',
     ),
+    1 => 
+    array (
+      'classname' => 'General',
+      'fieldname' => 'brick',
+    ),
   ),
 ));

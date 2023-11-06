@@ -1,0 +1,3 @@
+key,name,address,age,email,dob,country,location/latitude,location/longitude,gender,brick_0/text,block/0/lang
+new1,John Apple Seed,123 Main St,30,johnappleseed@gmail.com,1990-05-15,US,37.7749,-122.4194,Male,some text,English
+new2,Jason Meyers,426 Main St,29,jasonmayers@gmail.com,1991-03-25,US,37.7749,-122.4194,Male,some other text,English

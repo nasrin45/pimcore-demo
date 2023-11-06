@@ -1,0 +1,10 @@
+campusName: 'Calicut University'
+department:
+    - Finance
+    - Physics
+    - CS
+numberOfStudents: 2600
+facultyName: 'John Apple Seed'
+course: Physics
+joiningDate: '2023-07-19T18:30:00.000Z'
+permission: true

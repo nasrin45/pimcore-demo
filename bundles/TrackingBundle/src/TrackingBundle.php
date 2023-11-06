@@ -19,7 +19,7 @@ class TrackingBundle extends AbstractPimcoreBundle implements PimcoreBundleAdmin
     {
         return [
             '/bundles/tracking/js/pimcore/startup.js',
-//            '/bundles/tracking/js/pimcore/adminTracking.js',
+            '/bundles/tracking/js/pimcore/customButton.js',
         ];
     }
 
