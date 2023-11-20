@@ -1,0 +1,87 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+{% endblock %}
+ {{ pimcore_head_title("Home") }}
+{% block body %}
+    {% include 'header.html.twig' %}
+
+
+{% block content %}
+
+    {{ pimcore_website_config('custom', 'NOT SET') }}
+
+    <p>Campus: {{ home.getCampus() }}</p>
+
+    <h1>{{ pimcore_input("headline", {"width": 540}) }}</h1>
+
+    {{ pimcore_areablock('new',{
+        'allowed':['university-brick']
+    })
+    }}
+
+    {% for i in pimcore_block('contentblock').iterator %}
+        <h2>{{ pimcore_input('subline') }}</h2>
+        {{ pimcore_wysiwyg('content') }}
+    {% endfor %}
+
+    <div class="embed">
+        {{ pimcore_embed("aboutUs") }}
+    </div>
+
+    <section id="renderlet-gallery">
+        {{
+        pimcore_renderlet('myGallery', {
+            "controller" : "App\\Controller\\UniversityController::galleryAction",
+            "title" : "Drag an asset folder here to get a gallery",
+            "height" : 400
+        })
+        }}
+    </section>
+
+    {% if editmode %}
+    {{ pimcore_relation("home") }}
+    {% else %}
+        {% set home = pimcore_relation("home").element %}
+        {% if home %}
+            <p>{{ home.about }}</p>
+        {% endif %}
+        {% if tableData is not empty %}
+            <table>
+                <thead>
+                <tr>
+                    {% for header in tableData[0] %}
+                        <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                {% for rowIndex, row in tableData|slice(1) %}
+                    <tr>
+                        {% for cell in row %}
+                            <td>{{ cell }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No data available in the table.</p>
+        {% endif %}
+    {% endif %}
+
+    <strong>Location: {{ home.location }}</strong>
+
+    <p>{{ aboutText|raw }}</p>
+
+    {% set new = document.getProperty('new_key') %}
+    {{ new }}
+
+
+{% endblock %}
+
+
+    {{ pimcore_snippet("mySnippet", {"width": 250, "height": 100}) }}
+
+
+{% endblock %}

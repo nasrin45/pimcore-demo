@@ -1,0 +1,8 @@
+demo:
+    resource: "@DemoBundle/src/Controller/"
+    type:     annotation
+    prefix:   /
+
+product_preview:
+    path: /preview/product/{id}
+    controller: DemoBundle\Controller\ProductPreviewController::previewProductAction

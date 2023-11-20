@@ -1,0 +1,15 @@
+pimcore:
+    properties:
+        predefined:
+            definitions:
+                4bbbc531-504a-47f3-b4ee-f6fdd0ce4bf8:
+                    name: sidebar
+                    description: ''
+                    key: sidebar
+                    type: text
+                    data: 'some value'
+                    config: ''
+                    ctype: document
+                    inheritable: false
+                    creationDate: 1697173147
+                    modificationDate: 1697173177

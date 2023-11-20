@@ -7,8 +7,10 @@
  * Fields Summary:
  * - name [input]
  * - sku [input]
- * - description [wysiwyg]
- * - picture [image]
+ * - size [numeric]
+ * - colour [multiselect]
+ * - image [image]
+ * - gallery [imageGallery]
  */
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
@@ -18,10 +20,10 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'title' => '',
    'description' => '',
    'creationDate' => NULL,
-   'modificationDate' => 1695788668,
+   'modificationDate' => 1697706580,
    'userOwner' => 2,
    'userModification' => 2,
-   'parentClass' => '',
+   'parentClass' => 'Pimcore\\Model\\DataObject\\Student',
    'implementsInterfaces' => '',
    'listingParentClass' => '',
    'useTraits' => '',
@@ -64,7 +66,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
           0 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'name' => 'name',
-             'title' => 'Name',
+             'title' => 'Product Title',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -122,9 +124,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'defaultValueGenerator' => '',
           )),
           2 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Wysiwyg::__set_state(array(
-             'name' => 'description',
-             'title' => 'Description',
+          Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
+             'name' => 'size',
+             'title' => 'Size',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -140,16 +142,71 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'blockedVarsForExport' => 
             array (
             ),
-             'toolbarConfig' => '',
-             'excludeFromSearchIndex' => false,
-             'maxCharacters' => '',
+             'defaultValue' => NULL,
+             'integer' => false,
+             'unsigned' => false,
+             'minValue' => NULL,
+             'maxValue' => NULL,
+             'unique' => false,
+             'decimalSize' => NULL,
+             'decimalPrecision' => NULL,
+             'width' => '',
+             'defaultValueGenerator' => '',
+          )),
+          3 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Multiselect::__set_state(array(
+             'name' => 'colour',
+             'title' => 'Colour',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'fieldtype' => '',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'options' => 
+            array (
+              0 => 
+              array (
+                'key' => 'Black',
+                'value' => 'Black',
+              ),
+              1 => 
+              array (
+                'key' => 'Red',
+                'value' => 'Red',
+              ),
+              2 => 
+              array (
+                'key' => 'White',
+                'value' => 'White',
+              ),
+              3 => 
+              array (
+                'key' => 'Blue',
+                'value' => 'Blue',
+              ),
+            ),
+             'maxItems' => NULL,
+             'renderType' => 'list',
+             'optionsProviderClass' => '',
+             'optionsProviderData' => '',
+             'dynamicOptions' => false,
              'height' => '',
              'width' => '',
           )),
-          3 => 
+          4 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Image::__set_state(array(
-             'name' => 'picture',
-             'title' => 'Picture',
+             'name' => 'image',
+             'title' => 'Image',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -168,6 +225,32 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'uploadPath' => '',
              'width' => '',
              'height' => '',
+          )),
+          5 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\ImageGallery::__set_state(array(
+             'name' => 'gallery',
+             'title' => 'Image Gallery',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'fieldtype' => '',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'uploadPath' => '',
+             'ratioX' => NULL,
+             'ratioY' => NULL,
+             'predefinedDataTemplates' => '',
+             'height' => '',
+             'width' => '',
           )),
         ),
          'locked' => false,
@@ -200,6 +283,16 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'previewGeneratorReference' => '',
    'compositeIndices' => 
   array (
+    0 => 
+    array (
+      'index_key' => 'mycomposite',
+      'index_type' => 'query',
+      'index_columns' => 
+      array (
+        0 => 'name',
+        1 => 'sku',
+      ),
+    ),
   ),
    'showFieldLookup' => false,
    'propertyVisibility' => 

@@ -1,0 +1,160 @@
+pimcore_custom_reports:
+    definitions:
+        newReport:
+            name: newReport
+            sql: ''
+            dataSourceConfig:
+                -
+                    sql: 'Select *'
+                    from: objects
+                    where: ''
+                    groupby: ''
+                    type: sql
+            columnConfiguration:
+                -
+                    name: id
+                    display: true
+                    export: true
+                    order: true
+                    width: ''
+                    label: ''
+                    columnAction: null
+                    id: extModel1635-3
+                -
+                    name: parentId
+                    display: true
+                    export: true
+                    order: true
+                    width: ''
+                    label: ''
+                    id: extModel1635-4
+                -
+                    name: type
+                    display: false
+                    export: true
+                    order: true
+                    width: ''
+                    label: ''
+                    id: extModel1635-5
+                -
+                    name: key
+                    display: false
+                    export: true
+                    order: true
+                    width: ''
+                    label: ''
+                    id: extModel1635-6
+                -
+                    name: path
+                    display: false
+                    export: true
+                    order: true
+                    width: ''
+                    label: ''
+                    id: extModel1635-7
+                -
+                    name: index
+                    display: false
+                    export: true
+                    order: true
+                    width: ''
+                    label: ''
+                    id: extModel1635-8
+                -
+                    name: published
+                    display: false
+                    export: true
+                    order: true
+                    width: ''
+                    label: ''
+                    id: extModel1635-9
+                -
+                    name: creationDate
+                    display: true
+                    export: true
+                    order: true
+                    width: ''
+                    label: ''
+                    id: extModel1635-10
+                -
+                    name: modificationDate
+                    display: true
+                    export: true
+                    order: true
+                    width: ''
+                    label: ''
+                    id: extModel1635-11
+                -
+                    name: userOwner
+                    display: false
+                    export: true
+                    order: true
+                    width: ''
+                    label: ''
+                    id: extModel1635-12
+                -
+                    name: userModification
+                    display: true
+                    export: true
+                    order: true
+                    width: ''
+                    label: ''
+                    displayType: null
+                    id: extModel1635-13
+                -
+                    name: classId
+                    display: false
+                    export: true
+                    order: true
+                    width: ''
+                    label: ''
+                    id: extModel1635-14
+                -
+                    name: className
+                    display: true
+                    export: true
+                    order: true
+                    width: ''
+                    label: ''
+                    id: extModel1635-15
+                -
+                    name: childrenSortBy
+                    display: false
+                    export: true
+                    order: true
+                    width: ''
+                    label: ''
+                    id: extModel1635-16
+                -
+                    name: childrenSortOrder
+                    display: false
+                    export: true
+                    order: true
+                    width: ''
+                    label: ''
+                    id: extModel1635-17
+                -
+                    name: versionCount
+                    display: true
+                    export: true
+                    order: true
+                    width: ''
+                    label: ''
+                    columnAction: ''
+                    id: extModel1635-18
+            niceName: 'New Report'
+            group: ''
+            groupIconClass: ''
+            iconClass: ''
+            menuShortcut: true
+            reportClass: ''
+            chartType: pie
+            pieColumn: versionCount
+            pieLabelColumn: versionCount
+            xAxis: null
+            yAxis: {  }
+            modificationDate: 1697174957
+            creationDate: 1697109154
+            shareGlobally: true
+            sharedUserNames: {  }
+            sharedRoleNames: {  }

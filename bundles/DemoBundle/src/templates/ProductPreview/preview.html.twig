@@ -1,0 +1,37 @@
+{% block content %}
+    <h1>Product Details</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <td>{{ product.getName() }}</td>
+        </tr>
+        <tr>
+            <th>Sku</th>
+            <td>{{ product.getSku() }}</td>
+        </tr>
+        <tr>
+            <th>Size</th>
+            <td>{{ product.getSize() }}</td>
+        </tr>
+        <tr>
+            <th>Colour</th>
+            <td>
+                {% for color in product.getColour() %}
+                    {{ color }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Images</th>
+            <td>
+                <ul>
+                    {% for image in product.getGallery().getItems() %}
+                        <li>
+                            <img src="{{ image.getThumbnail('Product') }}" alt="Product Image">
+                        </li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+    </table>
+{% endblock %}

@@ -1,10 +1,42 @@
 imports:
     - { resource: 'local/' }
 
+parameters:
+    pimcore.commandline.php_executable: /usr/bin/php/php-cli
+    pimcore.document.asset.ffmpeg: /usr/bin/ffmpeg
+
+pimcore_admin:
+
+    custom_admin_path_identifier: min20CharCustomToken
+
+    objects:
+        notes_events:
+            types:
+                - "notice"
+                - "home"
+                - "warning"
+                - "content"
+                - "seo"
 
 pimcore:
 
-# IMPORTANT Notice!
+    bundles:
+        search_paths:
+            - src/CustomBundle
+            - src/DemoBundle
+
+    models:
+        class_overrides:
+            'Pimcore\Model\DataObject\Home': 'App\Model\DataObject\Home'
+
+
+    documents:
+        auto_save_interval: 60
+
+        objects:
+            auto_save_interval: 60
+
+    # IMPORTANT Notice!
 # Following there are only some examples listed, for a full list of possible options, please run the following command:
 # ./bin/console debug:config pimcore
 # you can also filter them by path, eg.
@@ -14,7 +46,10 @@ pimcore:
 
 
 #### TRANSLATIONS
-#    translations:
+    translations:
+        admin_translation_mapping:
+            'hr': 'en'
+            'zh': 'zh_Hans'
 #        case_insensitive: true
 
 #### FEATURE FLAGS
@@ -133,4 +168,7 @@ framework:
 #     return:
 #         name: ''
 #         email: ''
+doctrine_migrations:
+    migrations_paths:
+        'App\Migrations': '%kernel.project_dir%/src/Migrations'
 

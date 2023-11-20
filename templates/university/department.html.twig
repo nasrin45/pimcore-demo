@@ -1,0 +1,113 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+{% endblock %}
+ {{ pimcore_head_title("Departments") }}
+{% block body %}
+    {% include 'header.html.twig' %}
+
+
+    {% block content %}
+        <h1>{{ pimcore_input("headline", {"width": 540}) }}</h1>
+
+        <p>CS Department Inauguration Date:
+        {{ pimcore_date('myDate', {
+            'format': 'd.m.Y',
+            'outputFormat': '%d.%m.%Y'
+        })
+        }}
+        </p>
+
+        {% if editmode %}
+            {{ pimcore_relations("departmentElements") }}
+        {% else %}
+            <ul>
+                {% for department in pimcore_relations("departmentElements") %}
+                    {% for groupData in classificationStoreData %}
+                        <h2>{{ groupData.groupName }}</h2>
+                        <ul>
+                            {% for keyData in groupData.keys %}
+                                <li>
+                                    <strong>{{ keyData.name }}: </strong>{{ keyData.value|join(', ') }}<br>
+                                    {% if keyData.isQuantityValue %}
+                                        (Quantity Value)
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}
+
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+        {% if faculty %}
+            <h2>Department Faculty</h2>
+            {% if faculty.faculty is not null %}
+                {% for facultyItem in faculty.faculty.items %}
+                    <h2>{{ facultyItem.firstname }} {{ facultyItem.lastname }}</h2>
+                    <p><strong>Designation: </strong>{{ facultyItem.designation }}</p>
+                    <p><strong>Joined Date: </strong>{{ facultyItem.joined }}</p>
+                    <p><strong>Department: </strong>{{ facultyItem.department }}</p>
+                    {% if facultyItem.active %}
+                        <p>Status: Active</p>
+                    {% else %}
+                        <p>Status: Inactive</p>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% else %}
+            <p>No faculty assigned to this department.</p>
+        {% endif %}
+
+
+
+        {% if editmode %}
+        {{ pimcore_table("departmentProperties", {
+            "width": 700,
+            "height": 800,
+            "defaults": {
+                "cols": 2,
+                "rows": 3
+            }
+        }) }}
+        {% else %}
+            {% set data = pimcore_table("departmentProperties").getData() %}
+            {% if data is not empty %}
+                <br>
+                <table>
+                    <tbody>
+                    {% for row in data %}
+                        <tr>
+                            <th>{{ row[0] }}</th>
+                            <td>{{ row[1] }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No data available.</p>
+            {% endif %}
+        {% endif %}
+
+
+        {% if latitude is not null and longitude is not null %}
+            <br>
+            <h3>Location Coordinates</h3>
+            Latitude: {{ latitude }}<br>
+            Longitude: {{ longitude }}<br>
+        {% else %}
+            No coordinates available
+        {% endif %}
+
+
+
+
+    {% endblock %}
+
+
+    {{ pimcore_snippet("mySnippet", {"width": 250, "height": 100}) }}
+
+
+{% endblock %}

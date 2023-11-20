@@ -1,0 +1,14 @@
+monolog:
+    handlers:
+        custom_handler:
+            type: stream
+            path: '%kernel.logs_dir%/custom.log'
+            level: debug
+            channels: ['custom_log']
+        activity_log:
+            type: stream
+            path: "%kernel.project_dir%/var/log/activity.log"
+            level: debug
+            channels: [ 'admin_statistics' ]
+
+    channels: ['custom_log', 'admin_statistics']

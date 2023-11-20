@@ -30,6 +30,25 @@ parameters:
     #pimcore_executable_dot: /usr/bin/dot
 
 services:
+
+    App\Service\CustomService:
+        arguments:
+            $customLogger: '@monolog.logger.custom_log'
+
+    App\Command\MyCommand: ~
+
+    App\LoggerService:
+        arguments:
+            $logger: '@pimcore.logger.application'
+
+
+    App\Website\LinkGenerator\DepartmentLinkGenerator:
+        public: true
+
+    App\Service\PreviewParamProvider\DepartmentPreviewParamProvider:
+        arguments:
+            $departmentLinkGenerator: '@App\Website\LinkGenerator\DepartmentLinkGenerator'
+
     # default configuration for services in *this* file
     _defaults:
         # automatically injects dependencies in your services

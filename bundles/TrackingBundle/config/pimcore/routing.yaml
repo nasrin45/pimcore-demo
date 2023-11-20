@@ -1,0 +1,16 @@
+tracking:
+    resource: "@TrackingBundle/src/Controller/"
+    type:     annotation
+    prefix:   /
+
+tracking_list_actions:
+    path: /tracking/list-actions
+    controller: TrackingBundle\Controller\TrackingController::listAction
+
+tracking_bundle:
+    path: /bundles/tracking/js/adminTracking.js
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        path: /bundles/TrackingBundle/public/js/pimcore/adminTracking.js
+        requirements:
+            path: .*

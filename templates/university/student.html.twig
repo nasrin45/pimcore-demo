@@ -1,0 +1,89 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+{% endblock %}
+ {{ pimcore_head_title("Student Zone") }}
+{% block body %}
+    {% include 'header.html.twig' %}
+
+
+    {% block content %}
+        <h1>{{ pimcore_input("headline", {"width": 540}) }}</h1>
+        {% if editmode %}
+            {{ pimcore_select("valid_for", {
+                "store": [
+                    ["First Year", "First Year"],
+                    ["Second Year", "Second Year"],
+                    ["Third Year", "Third Year"]
+                ],
+                "defaultValue" : "unlimited"
+            }) }}
+        {% else %}
+            <p>
+                {{ "Results published for" | trans }}:{{ pimcore_select("valid_for").getData() | trans  }}
+            </p>
+        {% endif %}
+    {% endblock %}
+
+    <p>
+        {{ "Visit here to see the courses" | trans }}
+        {{ pimcore_link('course') }}
+    </p>
+
+    <p>
+        {{ "Visit here to see new notifications" | trans }}
+        {{ pimcore_link('notify') }}
+    </p>
+
+    <p>
+        Number of Results Published: {{ pimcore_numeric('resultsPublished') }}
+    </p>
+
+    {% if editmode %}
+        {{ pimcore_relation("student") }}
+    {% else %}
+        {% if structuredTableData is not empty %}
+            <table>
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Result</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in structuredTableData %}
+                    <tr>
+                        <td>{{ row.date }}</td>
+                        <td>{{ row.result }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No data available in the structured table.</p>
+        {% endif %}
+    {% endif %}
+
+    {% if imageGalleryData is not empty %}
+        <div class="image-gallery">
+            {% for image in imageGalleryData %}
+                <div class="image-item">
+                    <img src="{{ image.thumbnail('University')}}">
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No images available in the gallery.</p>
+    {% endif %}
+
+
+
+    {% for i in pimcore_scheduledblock('block').iterator %}
+        <h2>{{ pimcore_input('blockinput') }}</h2>
+    {% endfor %}
+
+
+    {{ pimcore_snippet("mySnippet", {"width": 250, "height": 100}) }}
+
+
+{% endblock %}

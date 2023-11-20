@@ -1,0 +1,10 @@
+{{ pimcore_head_title("Test") }}
+{% block body %}
+
+    {% block content %}
+        <h1>{{ pimcore_input("headline", {"width": 540}) }}</h1>
+        <p>{{ pimcore_input("faculties") }}</p>
+
+    {% endblock %}
+
+{% endblock %}
