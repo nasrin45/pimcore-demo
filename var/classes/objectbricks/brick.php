@@ -3,6 +3,7 @@
 /**
  * Fields Summary:
  * - text [input]
+ * - demo [wysiwyg]
  */
 
 return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
@@ -69,6 +70,31 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'showCharCount' => false,
              'width' => '',
              'defaultValueGenerator' => '',
+          )),
+          1 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Wysiwyg::__set_state(array(
+             'name' => 'demo',
+             'title' => 'Demo',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'fieldtype' => '',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'toolbarConfig' => '',
+             'excludeFromSearchIndex' => false,
+             'maxCharacters' => '',
+             'height' => '',
+             'width' => '',
           )),
         ),
          'locked' => false,

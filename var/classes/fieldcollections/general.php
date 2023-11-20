@@ -3,6 +3,7 @@
 /**
  * Fields Summary:
  * - description [textarea]
+ * - course [select]
  */
 
 return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
@@ -63,6 +64,51 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'showCharCount' => false,
              'excludeFromSearchIndex' => false,
              'height' => '',
+             'width' => '',
+          )),
+          1 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
+             'name' => 'course',
+             'title' => 'Course',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'fieldtype' => '',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'options' => 
+            array (
+              0 => 
+              array (
+                'key' => 'CS',
+                'value' => 'CS',
+              ),
+              1 => 
+              array (
+                'key' => 'Chemistry',
+                'value' => 'Chemistry',
+              ),
+              2 => 
+              array (
+                'key' => 'English',
+                'value' => 'English',
+              ),
+            ),
+             'defaultValue' => '',
+             'optionsProviderClass' => '',
+             'optionsProviderData' => '',
+             'columnLength' => 190,
+             'dynamicOptions' => false,
+             'defaultValueGenerator' => '',
              'width' => '',
           )),
         ),
